@@ -1,0 +1,148 @@
+/* --- CSS Variables for Easy Theme Switching --- */
+:root {
+    --bg-color: #f4f7f6;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --table-header-bg: #2c3e50;
+    --table-header-text: #ffffff;
+    --table-border: #e2e8f0;
+    --row-hover: #f8fafc;
+    --row-striped: #f9fbfd;
+    --toggle-bg: #ccc;
+    --toggle-active: #2ecc71;
+}
+
+[data-theme="dark"] {
+    --bg-color: #121824;
+    --card-bg: #1e293b;
+    --text-color: #f1f5f9;
+    --table-header-bg: #0f172a;
+    --table-header-text: #38bdf8;
+    --table-border: #334155;
+    --row-hover: #334155;
+    --row-striped: #1e293b;
+    --toggle-bg: #475569;
+}
+
+/* --- General Layout --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+/* --- Professional Responsive Table --- */
+.table-container {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow-x: auto; /* Enables horizontal scroll if extra columns are added */
+    transition: background-color 0.3s ease;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+th, td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--table-border);
+    white-space: nowrap; /* Prevents text awkward wrapping if columns increase */
+}
+
+th {
+    background-color: var(--table-header-bg);
+    color: var(--table-header-text);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Zebra striping for readability */
+tbody tr:nth-of-type(even) {
+    background-color: var(--row-striped);
+}
+
+tbody tr:hover {
+    background-color: var(--row-hover);
+    transition: background-color 0.15s ease;
+}
+
+/* --- Clean Toggle Switch Button --- */
+.theme-switch {
+    display: inline-block;
+    height: 28px;
+    position: relative;
+    width: 50px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: var(--toggle-bg);
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 20px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 20px;
+}
+
+input:checked + .slider {
+    background-color: var(--toggle-active);
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
