@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virus and Host Database</title>
+    <title>Mogibara - Virus and Host Database</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +11,8 @@
     <div class="container">
         <!-- Header & Controls -->
         <header>
-            <h1 id="title" data-en="Virus-Host Index" data-as="ভাইৰাছ-হোষ্ট সূচী">Virus-Host Index</h1>
+            <!-- MOGIBARA को टॉप-लेवल टाइटल बना दिया गया है -->
+            <h1 id="title" data-en="MOGIBARA: Virus-Host Index" data-as="মগীবৰা: ভাইৰাছ-হোষ্ট সূচী">MOGIBARA: Virus-Host Index</h1>
             
             <div class="controls">
                 <!-- Language Toggle Button -->
@@ -32,14 +33,10 @@
                     <tr>
                         <th data-en="Virus" data-as="ভাইৰাছ">Virus</th>
                         <th data-en="Host / Affected Condition" data-as="হোষ্ট (আশ্রয়দাতা) / আক্ৰান্ত অৱস্থা">Host / Affected Condition</th>
-                        <!-- Extra <th> tags added here will auto-style -->
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Mogibara</td>
-                        <td data-en="Vikas" data-as="বিকাশ">Vikas</td>
-                    </tr>
+                    <!-- तालिका से मगीबरा को हटाकर केवल वास्तविक वायरस रखे गए हैं -->
                     <tr>
                         <td data-en="Japanese Encephalitis Virus" data-as="জাপানীজ এনকেফেলাইটিছ ভাইৰাছ">Japanese Encephalitis Virus</td>
                         <td data-en="Pigs, Birds, and Humans" data-as="গাহৰি, চৰাই আৰু মানুহ">Pigs, Birds, and Humans</td>
@@ -53,7 +50,7 @@
                         <td data-en="Humans (Common cold)" data-as="মানুহ (সাধাৰণ চৰ্দী)">Humans (Common cold)</td>
                     </tr>
                     <tr>
-                        <td data-en="Influenza virus" data-as="ইনফ্লুৱেঞ্জা ভাইৰাছ">Influenza virus</td>
+                        <td data-en="Influenza virus" data-as="ইনফ্লুৱেঞ্জา ভাইৰাছ">Influenza virus</td>
                         <td data-en="Humans (Influenza)" data-as="মানুহ (ইনফ্লুৱেঞ্জা)">Humans (Influenza)</td>
                     </tr>
                     <tr>
@@ -76,7 +73,6 @@
                         <td data-en="Poliovirus" data-as="পলিঅ’ভাইৰাছ">Poliovirus</td>
                         <td data-en="Humans (Polio)" data-as="মানুহ (পলিঅ’)">Humans (Polio)</td>
                     </tr>
-                    <!-- You can add extra <tr> and <td> tags here -->
                 </tbody>
             </table>
         </div>
@@ -84,7 +80,6 @@
 
     <!-- Scripts for Theme and Language Switching -->
     <script>
-        // --- Dark/Light Mode Logic ---
         const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
         toggleSwitch.addEventListener('change', (e) => {
             if (e.target.checked) {
@@ -94,20 +89,14 @@
             }    
         });
 
-        // --- English/Assamese Language Logic ---
         const langBtn = document.getElementById('lang-btn');
-        let currentLang = 'en'; // default language
+        let currentLang = 'en';
 
         langBtn.addEventListener('click', () => {
-            // Toggle language state
             currentLang = currentLang === 'en' ? 'as' : 'en';
-            
-            // Update button text
             langBtn.textContent = currentLang === 'en' ? 'অসমীয়া' : 'English';
             
-            // Find all elements that have translations available
             const translatableElements = document.querySelectorAll('[data-en][data-as]');
-            
             translatableElements.forEach(el => {
                 if (currentLang === 'as') {
                     el.textContent = el.getAttribute('data-as');
@@ -118,5 +107,4 @@
         });
     </script>
 </body>
-    
 </html>
