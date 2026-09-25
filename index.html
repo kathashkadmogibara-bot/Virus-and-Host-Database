@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virus and Host Database</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header & Theme Switcher -->
+        <header>
+            <h1>Virus-Host Index</h1>
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round"></div>
+            </label>
+        </header>
+
+        <!-- Dynamic Data Table -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Virus</th>
+                        <th>Host</th>
+                        <!-- The CSS automatically adapts if you add more <th> headers here -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mogibara</td>
+                        <td>Vikas</td>
+                    </tr>
+                    <tr>
+                        <td>Japanese Encephalitis</td>
+                        <td>Pigs, Birds, and Humans</td>
+                    </tr>
+                    <!-- You can add extra <tr> and <td> tags here; they will auto-style -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Theme Switch Script -->
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }    
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
+</body>
+</html>
